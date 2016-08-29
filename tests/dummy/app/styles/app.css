@@ -1,0 +1,25 @@
+.cp-Panel {
+  border: 1px solid #ddd;
+}
+.cp-Panel-toggle {
+  display: block;
+  padding: 1px;
+}
+.cp-Panel-toggle:link {
+  text-decoration: none;
+}
+.cp-Panel-toggle:hover {
+  background-color: whitesmoke;
+}
+.cp-Panel-body-inner {
+  padding: 1px;
+}
+.cp-is-open {
+  background: #fcfcfc;
+}
+ul.cp-dates-list li {
+  list-style-type: none;
+}
+ul.cp-dates-list li.option-list.date_selected {
+  list-style-type: circle;
+}

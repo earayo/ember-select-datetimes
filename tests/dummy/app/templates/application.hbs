@@ -1,3 +1,13 @@
-<h2 id="title">Welcome to Ember</h2>
-
+<h2 id="title">Welcome to collapse Date time</h2>
+{{collapse-datetimes
+  dates=dates
+  onselect="setRange"
+  handlerController=this
+  selectIntervalCallback="selectInterval"
+  className="container"
+  nameElement="collapse_datetimes"
+}}
+{{#if range}}
+  The interval selected is: {{range.start}} - {{range.end}}
+{{/if}}
 {{outlet}}

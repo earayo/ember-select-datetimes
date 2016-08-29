@@ -1,0 +1,1 @@
+export { default } from 'ember-collapse-datetimes/components/collapse-datetimes';

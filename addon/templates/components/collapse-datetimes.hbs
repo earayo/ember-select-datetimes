@@ -1,0 +1,26 @@
+{{#if hasBlock}}
+  {{yield this}}
+{{else}}
+  {{#cp-panels accordion=true}}
+    {{#each dates as |date|}}
+      {{#cp-panel}}
+        {{#cp-panel-toggle}}
+          <p>{{date.title}}</p>
+        {{/cp-panel-toggle}}
+        <ul class="cp-dates-list">
+          {{#each date.intervals as |interval|}}
+            {{#cp-panel-body}}
+              <li class="option-list">
+                {{#input
+                  type="radio"
+                  name=nameElement
+                  click=(action "selectInterval" interval)}}{{/input}}
+                  {{hour-format interval.min_date}} - {{hour-format interval.max_date}}
+              </li>
+            {{/cp-panel-body}}
+          {{/each}}
+        </ul>
+      {{/cp-panel}}
+    {{/each}}
+  {{/cp-panels}}
+{{/if}}
