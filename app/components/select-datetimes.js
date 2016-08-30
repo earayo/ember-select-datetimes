@@ -1,0 +1,1 @@
+export { default } from 'ember-select-datetimes/components/select-datetimes';

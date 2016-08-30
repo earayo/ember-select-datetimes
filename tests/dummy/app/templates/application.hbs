@@ -1,12 +1,13 @@
-<h2 id="title">Welcome to collapse Date time</h2>
+<h2 id="title">Welcome to select Date time</h2>
 
 <h3>Collapsible</h3>
-{{collapse-datetimes
+{{select-datetimes
   dates=dates
   handlerController=this
   selectIntervalCallback="selectInterval"
   className="container"
-  nameElement="collapse_datetimes"
+  nameElement="select_datetimes"
+  collapsible=true
 }}
 {{#if range}}
   The interval selected is: {{range.start}} - {{range.end}}
@@ -14,14 +15,13 @@
 
 
 <h3>Not Collapsible</h3>
-{{collapse-datetimes
+{{select-datetimes
   dates=dates
   handlerController=this
   selectIntervalCallback="selectInterval2"
   className="container"
   nameElement="select_datetimes"
-  collapsible=false
-  isSearchabled=true
+  isSearchabled=false
 }}
 {{#if range2}}
   The interval selected is: {{range2.start}} - {{range2.end}}

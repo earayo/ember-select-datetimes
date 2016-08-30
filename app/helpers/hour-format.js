@@ -1,1 +1,1 @@
-export { default, hourFormat } from 'ember-collapse-datetimes/helpers/hour-format';
+export { default, hourFormat } from 'ember-select-datetimes/helpers/hour-format';

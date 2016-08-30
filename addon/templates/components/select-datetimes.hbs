@@ -2,7 +2,7 @@
   {{yield this}}
 {{else}}
   {{#if collapsible }}
-    {{#cp-panels accordion=true}}
+    {{#cp-panels accordion=true class=className}}
       {{#each dates as |date|}}
         {{#cp-panel}}
           {{#cp-panel-toggle}}
@@ -38,7 +38,7 @@
     {{#power-select
       options=date.intervals
       selected=(hour-format interval)
-      searchEnabled=isSearchabled
+      searchEnabled=false
       onchange=(action "selectInterval")
       placeholder="Select some interval hour..."
       as |interval|}}
