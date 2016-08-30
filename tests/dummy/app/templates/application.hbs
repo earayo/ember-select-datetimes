@@ -1,7 +1,8 @@
 <h2 id="title">Welcome to collapse Date time</h2>
+
+<h3>Collapsible</h3>
 {{collapse-datetimes
   dates=dates
-  onselect="setRange"
   handlerController=this
   selectIntervalCallback="selectInterval"
   className="container"
@@ -10,4 +11,20 @@
 {{#if range}}
   The interval selected is: {{range.start}} - {{range.end}}
 {{/if}}
+
+
+<h3>Not Collapsible</h3>
+{{collapse-datetimes
+  dates=dates
+  handlerController=this
+  selectIntervalCallback="selectInterval2"
+  className="container"
+  nameElement="select_datetimes"
+  collapsible=false
+  isSearchabled=true
+}}
+{{#if range2}}
+  The interval selected is: {{range2.start}} - {{range2.end}}
+{{/if}}
+
 {{outlet}}

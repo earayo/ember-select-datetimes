@@ -1,6 +1,7 @@
 import Ember from 'ember';
 export default Ember.Controller.extend({
   range: null,
+  range2: null,
   dates: [
     {
       title: "2016/08/25",
@@ -53,6 +54,13 @@ export default Ember.Controller.extend({
         end: interval.max_date
       };
       this.set("range", range);
+    },
+    selectInterval2(interval) {
+      let range = {
+        start: interval.min_date,
+        end: interval.max_date
+      };
+      this.set("range2", range);
     }
   }
 });

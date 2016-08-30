@@ -1,26 +1,48 @@
 {{#if hasBlock}}
   {{yield this}}
 {{else}}
-  {{#cp-panels accordion=true}}
-    {{#each dates as |date|}}
-      {{#cp-panel}}
-        {{#cp-panel-toggle}}
-          <p>{{date.title}}</p>
-        {{/cp-panel-toggle}}
-        <ul class="cp-dates-list">
-          {{#each date.intervals as |interval|}}
-            {{#cp-panel-body}}
-              <li class="option-list">
-                {{#input
-                  type="radio"
-                  name=nameElement
-                  click=(action "selectInterval" interval)}}{{/input}}
-                  {{hour-format interval.min_date}} - {{hour-format interval.max_date}}
-              </li>
-            {{/cp-panel-body}}
-          {{/each}}
-        </ul>
-      {{/cp-panel}}
-    {{/each}}
-  {{/cp-panels}}
+  {{#if collapsible }}
+    {{#cp-panels accordion=true}}
+      {{#each dates as |date|}}
+        {{#cp-panel}}
+          {{#cp-panel-toggle}}
+            <p>{{date.title}}</p>
+          {{/cp-panel-toggle}}
+          <ul class="cp-dates-list">
+            {{#each date.intervals as |interval|}}
+              {{#cp-panel-body}}
+                <li class="option-list">
+                  {{#input
+                    type="radio"
+                    name=nameElement
+                    click=(action "selectInterval" interval)}}{{/input}}
+                    {{hour-format interval}}
+                </li>
+              {{/cp-panel-body}}
+            {{/each}}
+          </ul>
+        {{/cp-panel}}
+      {{/each}}
+    {{/cp-panels}}
+  {{else}}
+    {{#power-select
+      options=dates
+      selected=date
+      searchEnabled=isSearchabled
+      searchField="title"
+      onchange=(action (mut date))
+      placeholder="Select some date..."
+      as |date|}}
+      {{date.title}}
+    {{/power-select}}
+    {{#power-select
+      options=date.intervals
+      selected=(hour-format interval)
+      searchEnabled=isSearchabled
+      onchange=(action "selectInterval")
+      placeholder="Select some interval hour..."
+      as |interval|}}
+      {{hour-format interval}}
+    {{/power-select}}
+  {{/if}}
 {{/if}}
